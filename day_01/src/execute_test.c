@@ -1,9 +1,9 @@
 #include <aoc.h>
 #include <stdio.h>
 
-bool	execute_p1(t_data *data)
+bool	execute_test(t_data *data)
 {
-	printf(GREEN BOLD"Executing part 1\n"RESET);
+	printf(GREEN BOLD"Executing test case\n"RESET);
 	if (data)
 		return (true);
 	return (false);

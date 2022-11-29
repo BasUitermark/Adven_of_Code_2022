@@ -10,7 +10,8 @@ bool	read_data(char **input)
 	FILE	*fd = NULL;
 
 	*input = 0;
-	fd = fopen("/home/buiterma/Documents/Personal/Advent_of_Code_2022/day_01/files/input.txt", "rw+");
+	printf(GREEN BOLD"Reading input file\n"RESET);
+	fd = fopen("files/input.txt", "rw+");
 	if (!fd)
 		printf("%s\n", strerror(errno));
 	if (fd)
@@ -28,7 +29,6 @@ bool	read_data(char **input)
 		if (*input)
 			fread (*input, 1, length, fd);
 		fclose (fd);
-		// *input[length] = '\0';
 		return (true);
 	}
 	return (false);

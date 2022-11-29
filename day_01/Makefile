@@ -51,7 +51,6 @@ makedir:
 all: $(TARGET)
 
 run: default
-	@printf "$(GREEN)Executing $(TARGET)!\n$(RESET)\n"
 	@./$(TARGET) $(RUN_ARGS)
 
 .PHONY: clean
