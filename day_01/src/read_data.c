@@ -4,13 +4,53 @@
 #include <errno.h>
 #include <string.h>
 
-bool	read_data(char **input)
+static int	count_line(char *input)
+{
+	size_t i = 0;
+	size_t count = 0;
+
+	while (input[i])
+	{
+		if (input[i] == '\n')
+			count++;
+		i++;
+	}
+	count++;
+	return (count);
+}
+
+static void make_2d(char *input, t_data *data_set)
+{
+	int		lines = 0;
+	int		lines_n = 0;
+	int		i = 0;
+	int		start = 0;
+	char	**array;
+
+	lines = count_line(input);
+	array = calloc(lines + 1, sizeof(char *));
+	while (input[i])
+	{
+		if (input[i - 1] == '\n')
+		{
+			array[lines_n] = ft_substr(input, start, i - start);
+			lines_n++;
+			start = i;
+		}
+		i++;
+	}
+	array[lines - 1] = strdup("\n");
+	data_set->str = array;
+	// for (int j = 0; data_set->str[j]; j++)
+	// 	printf("%s", data_set->str[j]);
+}
+
+bool	read_data(char **input, t_data *data_set)
 {
 	long	length;
 	FILE	*fd = NULL;
 
 	*input = 0;
-	printf(GREEN BOLD"Reading input file\n"RESET);
 	fd = fopen("files/input.txt", "rw+");
 	if (!fd)
 		printf("%s\n", strerror(errno));
@@ -29,7 +69,10 @@ bool	read_data(char **input)
 		if (*input)
 			fread (*input, 1, length, fd);
 		fclose (fd);
-		return (true);
 	}
+
+	make_2d(*input, data_set);
+	return (true);
+
 	return (false);
 }

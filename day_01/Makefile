@@ -64,5 +64,4 @@ fclean:
 	@rm -rf $(DISTCLEAN_LIST)
 
 .PHONY: re
-re:
-	fclean default
+re: fclean default

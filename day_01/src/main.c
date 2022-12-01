@@ -12,7 +12,7 @@ int	main(int argc, char const *argv[])
 	if (argc != 2 || atoi(argv[1]) > 2)
 		return (printf(RED BOLD"Wrong input\n"RESET), EXIT_FAILURE);
 
-	if (!read_data(&input))
+	if (!read_data(&input, &data_set))
 		return (EXIT_FAILURE);
 	if (!parse_data(&data_set, &input))
 		return (EXIT_FAILURE);

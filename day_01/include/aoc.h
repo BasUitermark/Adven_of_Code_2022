@@ -2,6 +2,7 @@
 # define AOC_H
 
 # include <stdbool.h>
+# include <stdlib.h>
 
 //========== Colors ============//
 # define RED		"\x1b[31m"
@@ -18,19 +19,30 @@
 # define BLINK		"\x1b[5m"
 # define CROSS		"\x1b[9m"
 
+typedef struct s_elf
+{
+	int	n_items;
+	int	*calories_item;
+	int	total_calories;
+}	t_elf;
+
 typedef struct s_data
 {
-
+	char	**str;
+	size_t	elf_amount;
+	t_elf	*elfs;
 }	t_data;
 
 //===== Functions =====//
 
 int		main(int argc, char const *argv[]);
-bool	read_data(char **input);
+bool	read_data(char **input, t_data *data_set);
 bool	parse_data(t_data *data_set, char **input);
 
 bool	execute_test(t_data *data);
 bool	execute_p1(t_data *data);
 bool	execute_p2(t_data *data);
+
+char	*ft_substr(char const *s, unsigned int start, size_t len);
 
 #endif
