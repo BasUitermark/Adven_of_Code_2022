@@ -1,4 +1,4 @@
-#include "../include/aoc.h"
+#include <aoc.h>
 #include <stdio.h>
 #include <memory.h>
 #include <string.h>

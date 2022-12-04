@@ -1,0 +1,10 @@
+{
+	"files.associations": {
+		"aoc.h": "c",
+		"memory.h": "c",
+		"string.h": "c",
+		"stdlib.h": "c",
+		"errno.h": "c",
+		"array": "c"
+	}
+}

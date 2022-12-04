@@ -1,4 +1,4 @@
-#include "../include/aoc.h"
+#include <aoc.h>
 #include <memory.h>
 #include <string.h>
 
@@ -27,7 +27,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	sub = (char *)calloc(len + 1, sizeof(char));
 	if (!sub)
 		return (NULL);
-	strncpy(sub, &s[start], len + 1);
+	strlcpy(sub, &s[start], len + 1);
 	sub[len] = '\0';
 	return (sub);
 }

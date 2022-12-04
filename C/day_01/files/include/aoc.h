@@ -3,7 +3,6 @@
 
 # include <stdbool.h>
 # include <stdlib.h>
-# include <string.h>
 
 //========== Colors ============//
 # define RED		"\x1b[31m"

@@ -3,7 +3,6 @@
 
 # include <stdbool.h>
 # include <stdlib.h>
-# include <string.h>
 
 //========== Colors ============//
 # define RED		"\x1b[31m"
@@ -30,8 +29,7 @@ typedef struct s_elf
 typedef struct s_data
 {
 	char	**str;
-	size_t	elf_amount;
-	t_elf	*elfs;
+	size_t	lines;
 }	t_data;
 
 //===== Functions =====//
@@ -45,5 +43,7 @@ bool	execute_p1(t_data *data);
 bool	execute_p2(t_data *data);
 
 char	*ft_substr(char const *s, unsigned int start, size_t len);
+size_t	ft_strlcpy(char *dst, const char *src, size_t n);
+char	**ft_split(char const *s, char c);
 
 #endif

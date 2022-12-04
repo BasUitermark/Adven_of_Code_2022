@@ -1,4 +1,4 @@
-#include "../include/aoc.h"
+#include <aoc.h>
 #include <stdio.h>
 
 bool	execute_test(t_data *data)

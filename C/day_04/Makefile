@@ -1,5 +1,5 @@
 # tool macros
-CC := gcc
+CC := clang
 COBJFLAGS := $(CFLAGS) -c
 
 GREEN		= \033[1;32m
