@@ -5,7 +5,7 @@ bool	execute_p1(t_data *data)
 {
 	int	score = 0;
 
-	for (int i = 0; data->str; i++)
+	for (int i = 0; data->str[i]; i++)
 	{
 		if (data->str[i][0] == 'A' && data->str[i][2] == 'X') //Draw: Rock/Rock 1+3
 			score += 4;

@@ -1,6 +1,12 @@
 #ifndef AOC_HPP
 # define AOC_HPP
 
+#include <vector>
+#include <string>
+
+# define INPUTFILE "files/input.txt"
+# define TEST "files/test.txt"
+
 //========== Colors ============//
 # define RED		"\x1b[31m"
 # define GREEN		"\x1b[32m"
@@ -16,6 +22,11 @@
 # define BLINK		"\x1b[5m"
 # define CROSS		"\x1b[9m"
 
-bool	readData(std::vector<std::string> inputArray);
+bool	readData(std::vector<std::string> *inputArray);
+bool	executeTest(std::vector<std::string> inputArray);
+bool	executePart1(std::vector<std::string> inputArray);
+bool	executePart2(std::vector<std::string> inputArray);
+
+void	printVectorString(std::vector<std::string> vectorString);
 
 #endif

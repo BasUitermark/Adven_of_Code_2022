@@ -37,10 +37,10 @@ endif
 
 # non-phony targets
 $(TARGET): $(OBJ)
-	$(CC) -o $@ $(OBJ) $(HDR_PATH) $(CFLAGS)
+	@$(CC) -o $@ $(OBJ) $(HDR_PATH) $(CFLAGS)
 
 $(OBJ_PATH)/%.o: $(SRC_PATH)/%.cpp*
-	$(CC) $(COBJFLAGS) -o $@ $< $(HDR_PATH)
+	@$(CC) $(COBJFLAGS) -o $@ $< $(HDR_PATH)
 
 # phony rules
 .PHONY: makedir
