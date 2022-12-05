@@ -1,5 +1,5 @@
 # tool macros
-CC := c++
+CC := clang
 COBJFLAGS := $(CFLAGS) -c
 
 GREEN		= \033[1;32m
@@ -19,7 +19,7 @@ TARGET_NAME := aoc
 TARGET := $(BIN_PATH)/$(TARGET_NAME)
 
 # src files & obj files
-SRC := $(foreach x, $(SRC_PATH), $(wildcard $(addprefix $(x)/*,.cpp*)))
+SRC := $(foreach x, $(SRC_PATH), $(wildcard $(addprefix $(x)/*,.c*)))
 OBJ := $(addprefix $(OBJ_PATH)/, $(addsuffix .o, $(notdir $(basename $(SRC)))))
 
 
@@ -39,7 +39,7 @@ endif
 $(TARGET): $(OBJ)
 	@$(CC) -o $@ $(OBJ) $(HDR_PATH) $(CFLAGS)
 
-$(OBJ_PATH)/%.o: $(SRC_PATH)/%.cpp*
+$(OBJ_PATH)/%.o: $(SRC_PATH)/%.c*
 	@$(CC) $(COBJFLAGS) -o $@ $< $(HDR_PATH)
 
 # phony rules
