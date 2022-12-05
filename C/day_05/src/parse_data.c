@@ -4,13 +4,20 @@
 #include <string.h>
 #include <ctype.h>
 
-// static int	detect_filler(t_data *str)
-// {
-// 	if (data->str[line][column] == '[');
-// 		return (1);
+char *strrev(char *str)
+{
+      char *p1, *p2;
 
-// 	return (0);
-// }
+      if (! str || ! *str)
+            return str;
+      for (p1 = str, p2 = str + strlen(str) - 1; p2 > p1; ++p1, --p2)
+      {
+            *p1 ^= *p2;
+            *p2 ^= *p1;
+            *p1 ^= *p2;
+      }
+      return str;
+}
 
 static char	**parse_stack(char **str)
 {
@@ -39,6 +46,7 @@ static char	**parse_stack(char **str)
 			stacks[i][j] = str[line][column];
 			line++;
 		}
+		strrev(stacks[i]);
 		line = 0;
 		column += 4;
 	}
@@ -53,6 +61,6 @@ bool	parse_data(t_data *data_set, char **input)
 	data_set->stack = parse_stack(data_set->str);
 	if (!data_set->stack)
 		exit (EXIT_FAILURE);
-	print_strarray(data_set->stack, NULL, NULL);
+	data_set->moves = &data_set->str[9];
 	return (true);
 }
