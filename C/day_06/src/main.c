@@ -17,14 +17,14 @@ int	main(int argc, char const *argv[])
 	// if (!parse_data(&data_set, &input))
 	// 	return (EXIT_FAILURE);
 
-	if (argv[1][0] == '0')
-		if (!execute_test(&data_set))
-			return (EXIT_FAILURE);
+	// if (argv[1][0] == '0')
+	// 	if (!execute_test(&data_set))
+			// return (EXIT_FAILURE);
 	if (argv[1][0] == '1')
-		if (!execute_p1(&input))
+		if (!execute_p1(input))
 			return (EXIT_FAILURE);
 	if (argv[1][0] == '2')
-		if (!execute_p2(&data_set))
+		if (!execute_p2(input))
 	// 		return (EXIT_FAILURE);
 	return (EXIT_SUCCESS);
 }
