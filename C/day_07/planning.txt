@@ -1,0 +1,27 @@
+
+
+
+dir / 		[0]
+
+
+
+dir /		[0]
+cd lhrfs	[i = 9, pos = 1]
+
+dir lhrfs	[1]
+dir lhrfs	[1]
+cd /		[i = 12, pos = 0]
+cd nwh		[i = 14, pos = 2]
+
+dir nwh		[2]
+dir nwh		[2]
+
+dir nwh		[2]
+cd pmdj		[i = 20, pos = 3]
+
+dir pmdj	[3]
+dir pmdj	[3]
+dir pmdj	[3]
+cd nwh		[i = 20, pos = 2]
+cd lhrfs	[i = 20, pos = 1]
+cd pjsd		[i = 21, pos = 4]

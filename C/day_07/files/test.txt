@@ -1,0 +1,200 @@
+$ cd /
+$ ls
+dir lhrfs
+193233 mvsjmrtn
+dir nwh
+dir pjsd
+dir qfrrtb
+31987 zzdfcs
+$ cd lhrfs
+$ ls
+197903 hzl.jdj
+42249 wsbpzmbq.hws
+$ cd ..
+$ cd nwh
+$ ls
+63077 bgrccm.tqh
+69961 dznccwl.bnw
+dir pmdj
+187013 rsbvj.jtd
+$ cd pmdj
+$ ls
+292527 rlgfd.rrd
+68737 tbj.grn
+153072 wsbpzmbq.hws
+$ cd ..
+$ cd ..
+$ cd pjsd
+$ ls
+dir czzcslm
+dir dgwpl
+dir fqg
+dir lszhdjr
+dir mmpf
+dir wtwhzzwz
+149748 zzdfcs
+$ cd czzcslm
+$ ls
+249237 bvrnzhd.vzp
+16960 ssvqllt.ccv
+$ cd ..
+$ cd dgwpl
+$ ls
+23547 brsbfqbm.hls
+dir ljzrwpv
+$ cd ljzrwpv
+$ ls
+dir btnzjtlr
+dir czr
+$ cd btnzjtlr
+$ ls
+191998 tbj.mwg
+$ cd ..
+$ cd czr
+$ ls
+dir fqg
+$ cd fqg
+$ ls
+276766 llhzr.pjh
+$ cd ..
+$ cd ..
+$ cd ..
+$ cd ..
+$ cd fqg
+$ ls
+275942 bhcg
+dir fqg
+dir gghdbzz
+dir hswgvpt
+75273 hzl
+dir lfpblmwt
+dir sdcwn
+dir wmrwd
+$ cd fqg
+$ ls
+dir bpbtnq
+267620 btnzjtlr.mgr
+174395 fqg.vpw
+dir tfbfgzw
+dir twhvbbr
+$ cd bpbtnq
+$ ls
+194542 mtztnd.hdb
+$ cd ..
+$ cd tfbfgzw
+$ ls
+dir cgdlflbt
+10814 fqg.cqp
+40235 fztb.jzr
+dir hzl
+$ cd cgdlflbt
+$ ls
+176005 wsbpzmbq.hws
+$ cd ..
+$ cd hzl
+$ ls
+dir ccpdp
+dir hgwpjvn
+dir hzl
+203730 pbn.rzl
+88179 tbj
+295466 zdbmfmzs.jjh
+$ cd ccpdp
+$ ls
+172836 btnzjtlr
+$ cd ..
+$ cd hgwpjvn
+$ ls
+122725 hnsrdnl.ctv
+261470 tmgpjbj
+$ cd ..
+$ cd hzl
+$ ls
+59843 lffmd.fwr
+$ cd ..
+$ cd ..
+$ cd ..
+$ cd twhvbbr
+$ ls
+134874 hnsrdnl.ctv
+$ cd ..
+$ cd ..
+$ cd gghdbzz
+$ ls
+dir fqg
+$ cd fqg
+$ ls
+233336 ssvqllt.ccv
+$ cd ..
+$ cd ..
+$ cd hswgvpt
+$ ls
+dir fwfhnbc
+dir hcp
+221595 hnsrdnl.ctv
+230875 hzl
+257695 jbfnlc.qqn
+126050 tbj.qlc
+dir wdlh
+$ cd fwfhnbc
+$ ls
+293848 zhz.mff
+$ cd ..
+$ cd hcp
+$ ls
+288118 gdndr.gwn
+$ cd ..
+$ cd wdlh
+$ ls
+227328 btnzjtlr.msq
+dir hzl
+94325 hzl.wjp
+272466 zzdfcs
+$ cd hzl
+$ ls
+184779 ssvqllt.ccv
+$ cd ..
+$ cd ..
+$ cd ..
+$ cd lfpblmwt
+$ ls
+151071 ssvqllt.ccv
+$ cd ..
+$ cd sdcwn
+$ ls
+61632 hzl.mvp
+dir tbj
+dir tdwc
+dir tnjcf
+dir tstqdt
+$ cd tbj
+$ ls
+dir btnzjtlr
+dir cwsv
+1318 tbj
+293645 wnv
+$ cd btnzjtlr
+$ ls
+2441 hnsrdnl.ctv
+$ cd ..
+$ cd cwsv
+$ ls
+238930 gwr
+236116 tlzqtch
+$ cd ..
+$ cd ..
+$ cd tdwc
+$ ls
+dir btnzjtlr
+dir fqg
+dir zgjpfj
+$ cd btnzjtlr
+$ ls
+177427 tbj.hgf
+$ cd ..
+$ cd fqg
+$ ls
+241003 dbnwzbn.flv
+$ cd ..
+$ cd zgjpfj
+$ ls
