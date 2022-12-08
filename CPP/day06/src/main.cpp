@@ -8,8 +8,6 @@
 int main(int argc, char const *argv[])
 {
 	std::vector<std::string> inputArray;
-	std::vector<std::string> movesArray;
-	std::vector<std::string> stackArray;
 
 	if (argc != 2 || std::stoi(argv[1]) > 2)
 	{
@@ -18,15 +16,15 @@ int main(int argc, char const *argv[])
 	}
 	if (!readData(&inputArray))
 		return (EXIT_FAILURE);
-	std::cout << inputArray.at(0) << std::endl;
+	// std::cout << inputArray.at(0) << std::endl;
 	// if (argv[1][0] == '0')
 	// 	if (!executeTest(inputArray))
 	// 		return (EXIT_FAILURE);
 	if (argv[1][0] == '1')
 		if (!executePart1(inputArray))
 			return (EXIT_FAILURE);
-	// if (argv[1][0] == '2')
-	// 	if (!executePart2(inputArray))
-	// 		return (EXIT_FAILURE);
+	if (argv[1][0] == '2')
+		if (!executePart2(inputArray))
+			return (EXIT_FAILURE);
 	return (EXIT_SUCCESS);
 }

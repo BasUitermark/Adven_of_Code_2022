@@ -5,40 +5,34 @@
 #include <algorithm>
 #include "../include/aoc.hpp"
 
-static std::vector<int>	getNumbers(std::string str)
+static bool	checkChar(std::string input, char c)
 {
-	std::vector<int>	instr;
-	std::stringstream 	ss;
-	std::string			temp;
-	int 				found = 0;
+	int	count = 0;
 
-	ss << str;
-	while (!ss.eof())
+	for (int i = 0; i < 14 && i < input.size(); i++)
 	{
-		ss >> temp;
-		if (std::stringstream(temp) >> found)
-			instr.push_back(found);
-		temp = "";
+		if (input[i] == c)
+			count++;
+		if (count > 1)
+			return(true);
 	}
-	instr[1] -= 1;
-	instr[2] -= 1;
-	return (instr);
+	return (false);
 }
 
-bool	executePart2(std::vector<std::string> inputArray, std::vector<std::string> stackArray)
+bool	executePart2(std::vector<std::string> inputArray)
 {
-	std::vector<int>	instr;
-	std::string			str;
+	int	index;
+	int	j = 0;
 
-	for (int i = 0; i < inputArray.size(); i++)
+	for (int i = 0; inputArray[0][i]; i++)
 	{
-		instr = getNumbers(inputArray.at(i));
-		stackArray.at(instr[2]).append(stackArray.at(instr[1]).end() - instr.at(0), stackArray.at(instr[1]).end());
-		stackArray.at(instr[1]).resize(stackArray.at(instr[1]).size() - instr.at(0));
+		index = i;
+		while (j < 14 && !checkChar(inputArray.at(0).substr(i, 14), inputArray.at(0).at(i + j)))
+			j++;
+		if (j == 14)
+			break ;
+		j = 0;
 	}
-	for (int j = 0; j < stackArray.size(); j++)
-		str.push_back(stackArray.at(j).back());
-
-	std::cout << GREEN BOLD "Final string: " << str << RESET << std::endl;
+	std::cout << GREEN BOLD "First start-of-packet marker: " << index + 14 << RESET << std::endl;
 	return (true);
 }
