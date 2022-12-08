@@ -13,10 +13,15 @@ static int	calc_lines(char **str)
 	return (i);
 }
 
-static int **fill_array(t_data *data)
+static void fill_array(t_data *data)
 {
-	data->array = calloc(data->lines, sizeof(int *))
-
+	data->array = calloc(data->lines, sizeof(int *));
+	for (int i = 0; i < data->lines; i++)
+	{
+		data->array[i] = calloc(data->columns, sizeof(int));
+		for (int j = 0; j < data->columns; j++)
+			data->array[i][j] = data->str[i][j] - '0';
+	}
 }
 
 bool	parse_data(t_data *data, char **input)
@@ -25,6 +30,7 @@ bool	parse_data(t_data *data, char **input)
 	if (!data->str)
 		return (false);
 	data->lines = calc_lines(data->str);
+	data->columns = strlen(data->str[0]);
 	fill_array(data);
 	return (true);
 }

@@ -45,6 +45,7 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t n);
 char	**ft_split(char const *s, char c);
 
 void	print_strarray(char **str, char *type, char *color);
+void	print_intarray(int **array, int lines, int columns);
 void	print(char *str, char *type, char *color);
 
 #endif

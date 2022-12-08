@@ -1,60 +1,92 @@
 #include "../include/aoc.h"
 #include <stdio.h>
 #include <string.h>
-#include <ctype.h>
-#include <locale.h>
 
-static int	find_directory_sizes(long *directory_sizes, char **str, int index, int pos, int size)
+static int	check_xneg(t_data *data, int line, int column)
 {
-	int	i;
-	int cur = pos;
+	int	cur_line = line;
+	int scenic_xneg = 0;
 
-	for (i = index; i < size; i++)
+	for (line -= 1; line >= 0; line--)
 	{
-		if (isdigit(str[i][0])) //add number to array
-			directory_sizes[cur] += atol(str[i]);
-		if (strncmp(str[i], "$ cd ..", 7) == 0) //return to prev dir
-			return (i);
-		if (strncmp(str[i], "$ cd ", 5) == 0 && str[i][5] != '/') //go to next dir
-		{
-			while (directory_sizes[pos + 1] != 0) //only add to empty position
-				pos++;
-			i = find_directory_sizes(directory_sizes, str, i + 1, pos + 1, size);
-			directory_sizes[cur] += directory_sizes[pos + 1]; //add to parent dir
-		}
+		scenic_xneg++;
+		if (data->array[line][column] >= data->array[cur_line][column])
+			return (scenic_xneg);
 	}
-	return (i);
+	return (scenic_xneg);
 }
 
-static long	find_lowest(long *directory_sizes, int n)
+static int	check_yneg(t_data *data, int line, int column)
 {
-	long free_space;
-	long min;
-	long cur;
+	int	cur_column = column;
+	int	scenic_yneg = 0;
 
-	free_space = 70000000 - directory_sizes[0];
-	min = 30000000 - free_space;
-	cur = directory_sizes[0];
-	for (int i = 0; i < n; i++)
+	for (column -= 1; column >= 0; column--)
 	{
-		if (directory_sizes[i] < cur && directory_sizes[i] > min)
-			cur = directory_sizes[i];
+		scenic_yneg++;
+		if (data->array[line][column] >= data->array[line][cur_column])
+			return (scenic_yneg);
 	}
-	return (cur);
+	return (scenic_yneg);
+}
+
+static int	check_xpos(t_data *data, int line, int column)
+{
+	int	cur_line = line;
+	int	scenic_xpos = 0;
+
+	for (line += 1; line < data->lines; line++)
+	{
+		scenic_xpos++;
+		if (data->array[line][column] >= data->array[cur_line][column])
+			return (scenic_xpos);
+	}
+	return (scenic_xpos);
+}
+
+static int	check_ypos(t_data *data, int line, int column)
+{
+	int	cur_column = column;
+	int	scenic_ypos = 0;
+
+	for (column += 1; column < data->columns; column++)
+	{
+		scenic_ypos++;
+		if (data->array[line][column] >= data->array[line][cur_column])
+			return (scenic_ypos);
+	}
+	return (scenic_ypos);
+}
+
+static int	check_paths(t_data *data)
+{
+	int score[4];
+	int max = 0;
+	int new = 0;
+	int i = 0;
+	int j = 0;
+
+	for (i = 0; i < data->lines; i++)
+	{
+		for (j = 0; j < data->columns; j++)
+		{
+			score[0] = check_yneg(data, i, j);
+			score[1] = check_ypos(data, i, j);
+			score[2] = check_xneg(data, i, j);
+			score[3] = check_xpos(data, i, j);
+			new = score[0] * score[1] * score[2] * score[3];
+			if (new > max)
+				max = new;
+		}
+	}
+
+	return (max);
 }
 
 bool	execute_p2(t_data *data)
 {
-	int		total = 0;
-	long	*directory_sizes;
-
-	setlocale(LC_NUMERIC, "");
-	directory_sizes = calloc(data->number_of_directories, sizeof(long));
-	if (!directory_sizes)
-		exit(EXIT_FAILURE);
-	
-	find_directory_sizes(directory_sizes, data->str, 0, 0, data->lines);
-	total = find_lowest(directory_sizes, data->number_of_directories);
-	printf(GREEN BOLD"Smallest directory to free up space:	%'d\n"RESET, total);
+	int max = 0;
+	max = check_paths(data);
+	printf(GREEN BOLD"Maximum scenic score:	%d\n"RESET, max);
 	return (true);
 }

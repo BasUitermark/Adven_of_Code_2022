@@ -3,51 +3,69 @@
 #include <string.h>
 #include <ctype.h>
 
-static int	find_directory_sizes(long *directory_sizes, char **str, int index, int pos, int size)
+static int	check_xneg(t_data *data, int line, int column)
 {
-	int	i;
-	int cur = pos;
+	int	cur_line = line;
 
-	for (i = index; i < size; i++)
+	for (line -= 1; line >= 0; line--)
 	{
-		if (isdigit(str[i][0])) //add number to array
-			directory_sizes[cur] += atol(str[i]);
-		if (strncmp(str[i], "$ cd ..", 7) == 0) //return to prev dir
-			return (i);
-		if (strncmp(str[i], "$ cd ", 5) == 0 && str[i][5] != '/') //go to next dir
-		{
-			while (directory_sizes[pos + 1] != 0)
-				pos++;
-			i = find_directory_sizes(directory_sizes, str, i + 1, pos + 1, size);
-			directory_sizes[cur] += directory_sizes[pos + 1];
-		}
+		if (data->array[line][column] >= data->array[cur_line][column])
+			return (0);
 	}
-	return (i);
+	return (1);
 }
 
-static long	find_lowest(long *directory_sizes, int n)
+static int	check_yneg(t_data *data, int line, int column)
 {
-	long total = 0;
+	int	cur_column = column;
 
-	for (int i = 0; i < n; i++)
+	for (column -= 1; column >= 0; column--)
+		if (data->array[line][column] >= data->array[line][cur_column])
+			return (0);
+	return (1);
+}
+
+static int	check_xpos(t_data *data, int line, int column)
+{
+	int	cur_line = line;
+
+	for (line += 1; line < data->lines; line++)
+		if (data->array[line][column] >= data->array[cur_line][column])
+			return (0);
+	return (1);
+}
+
+static int	check_ypos(t_data *data, int line, int column)
+{
+	int	cur_column = column;
+
+	for (column += 1; column < data->columns; column++)
+		if (data->array[line][column] >= data->array[line][cur_column])
+			return (0);
+	return (1);
+}
+
+static int	check_paths(t_data *data)
+{
+	int sum = 0;
+	int i = 0;
+	int j = 0;
+
+	for (i = 0; i < data->lines; i++)
 	{
-		if (directory_sizes[i] <= 100000)
-			total += directory_sizes[i];
+		for (j = 0; j < data->columns; j++)
+		{
+			if (check_yneg(data, i, j) || check_ypos(data, i, j) || check_xneg(data, i, j) || check_xpos(data, i, j))
+				sum++;
+		}	
 	}
-	return (total);
+	return (sum);
 }
 
 bool	execute_p1(t_data *data)
 {
-	int	total = 0;
-	long	*directory_sizes;
-
-	directory_sizes = calloc(data->number_of_directories, sizeof(long));
-	if (!directory_sizes)
-		exit(EXIT_FAILURE);
-	
-	find_directory_sizes(directory_sizes, data->str, 0, 0, data->lines);
-	total = find_lowest(directory_sizes, data->number_of_directories);
-	printf(GREEN BOLD"Directories with a total size of at most 100000:	%d\n"RESET, total);
+	int sum = 0;
+	sum = check_paths(data);
+	printf(GREEN BOLD"Visible trees:	%d\n"RESET, sum);
 	return (true);
 }

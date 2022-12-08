@@ -9,7 +9,7 @@ int	main(int argc, char const *argv[])
 	char	*input;
 	t_data	data;
 
-	if (argc != 2 || atoi(argv[1]) > 2)
+	if (argc != 2 || atoi(argv[1]) > 3)
 		return (printf(RED BOLD"Wrong input\n"RESET), EXIT_FAILURE);
 
 	if (!read_data(argv, &input, &data))
@@ -26,5 +26,12 @@ int	main(int argc, char const *argv[])
 	if (argv[1][0] == '2')
 		if (!execute_p2(&data))
 			return (EXIT_FAILURE);
+	if (argv[1][0] == '3')
+	{
+		if (!execute_p1(&data))
+			return (EXIT_FAILURE);
+		if (!execute_p2(&data))
+			return (EXIT_FAILURE);
+	}
 	return (EXIT_SUCCESS);
 }

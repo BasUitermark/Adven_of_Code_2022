@@ -16,6 +16,16 @@ void	print_strarray(char **str, char *type, char *color)
 	
 }
 
+void	print_intarray(int **array, int lines, int columns)
+{
+	for (int i = 0; i < lines; i++)
+	{
+		for (int j = 0; j < columns; j++)
+			printf("%d ", array[i][j]);
+		printf("\n");
+	}	
+}
+
 void	print(char *str, char *type, char *color)
 {
 	if (!str)
