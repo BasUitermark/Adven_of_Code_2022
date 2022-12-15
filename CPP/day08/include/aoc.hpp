@@ -22,12 +22,13 @@
 # define BLINK		"\x1b[5m"
 # define CROSS		"\x1b[9m"
 
-bool	readData(std::vector<std::string> *inputArray);
+bool	readData(std::vector<std::string> *inputArray, std::vector<std::vector<int>> &numArray);
 bool	executeTest(std::vector<std::string> inputArray);
 bool	executePart1(std::vector<std::string> inputArray);
 bool	executePart2(std::vector<std::string> inputArray);
 
 void	printVectorString(std::vector<std::string> vectorString);
 void	printVectorLong(std::vector<long> vectorLong);
+void	printVectorInt(std::vector<std::vector<int>> vectorInt);
 
 #endif
